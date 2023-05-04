@@ -1,0 +1,37 @@
+OBJECT Table 50026 IEM_Ranking
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=15:53:06;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+  }
+  FIELDS
+  {
+    { 1   ;   ;codiJugador         ;Integer       ;Description=Codi del jugador }
+    { 2   ;   ;nomJugador          ;Text45        ;Description=Nom del jugador }
+    { 3   ;   ;cicle               ;Text200       ;Description=Nom del cicle que ha escollit }
+    { 4   ;   ;puntuacio           ;Integer       ;Description=Puntuaci¢ del jugador }
+    { 5   ;   ;tempsEmprat         ;Integer       ;Description=Temps jugat }
+    { 6   ;   ;itemsCorrectes      ;Integer       ;Description=Items correctes agafats }
+    { 7   ;   ;itemsIncorrectes    ;Integer       ;Description=Items incorrectes agafats }
+  }
+  KEYS
+  {
+    {    ;codiJugador                             ;Clustered=Yes }
+  }
+  FIELDGROUPS
+  {
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

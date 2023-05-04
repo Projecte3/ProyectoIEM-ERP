@@ -1,0 +1,34 @@
+OBJECT Table 50025 IEM_Ocupacions
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=15:44:53;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+  }
+  FIELDS
+  {
+    { 1   ;   ;codiOcupacio        ;Integer       ;Description=Codi de l'ocupaci¢ }
+    { 2   ;   ;nomOcupacio         ;Text200       ;Description=Nom de l'ocupaci¢ }
+    { 3   ;   ;cicle               ;Integer       ;TableRelation=IEM_Cicles.codiCicle;
+                                                   Description=Codi del cicle }
+  }
+  KEYS
+  {
+    {    ;codiOcupacio                            ;Clustered=Yes }
+  }
+  FIELDGROUPS
+  {
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

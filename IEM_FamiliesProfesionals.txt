@@ -1,0 +1,32 @@
+OBJECT Table 50023 IEM_FamiliesProfesionals
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=15:39:09;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+  }
+  FIELDS
+  {
+    { 1   ;   ;codiFamilia         ;Integer       ;Description=Codi de la familia }
+    { 2   ;   ;nomFamilia          ;Text100       ;Description=Nom de la familia }
+  }
+  KEYS
+  {
+    {    ;codiFamilia                             ;Clustered=Yes }
+  }
+  FIELDGROUPS
+  {
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

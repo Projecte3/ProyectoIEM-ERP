@@ -1,0 +1,41 @@
+OBJECT Page 50025 IEM_OcupacionsList
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=18:56:20;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    SourceTable=Table50025;
+    PageType=List;
+  }
+  CONTROLS
+  {
+    { 1106000000;0;Container;
+                ContainerType=ContentArea }
+
+    { 1106000001;1;Group  ;
+                Name=Group;
+                GroupType=Repeater }
+
+    { 1106000002;2;Field  ;
+                SourceExpr=codiOcupacio }
+
+    { 1106000003;2;Field  ;
+                SourceExpr=nomOcupacio }
+
+    { 1106000004;2;Field  ;
+                SourceExpr=cicle }
+
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

@@ -1,0 +1,33 @@
+OBJECT Table 50024 IEM_Cicles
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=15:41:30;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+  }
+  FIELDS
+  {
+    { 1   ;   ;codiCicle           ;Integer       ;Description=Codi del cicle }
+    { 2   ;   ;nomCicle            ;Text200       ;Description=Nom del cicle }
+    { 3   ;   ;familia             ;Integer       ;Description=Codi de la familia }
+  }
+  KEYS
+  {
+    {    ;codiCicle                               ;Clustered=Yes }
+  }
+  FIELDGROUPS
+  {
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

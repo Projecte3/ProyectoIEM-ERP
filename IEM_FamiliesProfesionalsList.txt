@@ -1,0 +1,50 @@
+OBJECT Page 50023 IEM_FamiliesProfesionalsList
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=19:08:50;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    SourceTable=Table50023;
+    PageType=List;
+    ActionList=ACTIONS
+    {
+      { 1106000006;  ;ActionContainer;
+                      Name=Nous documents;
+                      ActionContainerType=ActionItems }
+      { 1106000005;1 ;ActionGroup;
+                      Name=Llista }
+      { 1106000004;2 ;Action    ;
+                      Name=Llista_FamiliesProfesionals;
+                      RunObject=Page 50024;
+                      RunPageLink=familia=FIELD(codiFamilia) }
+    }
+  }
+  CONTROLS
+  {
+    { 1106000000;0;Container;
+                ContainerType=ContentArea }
+
+    { 1106000001;1;Group  ;
+                Name=Group;
+                GroupType=Repeater }
+
+    { 1106000002;2;Field  ;
+                SourceExpr=codiFamilia }
+
+    { 1106000003;2;Field  ;
+                SourceExpr=nomFamilia }
+
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

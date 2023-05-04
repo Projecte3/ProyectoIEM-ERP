@@ -1,0 +1,111 @@
+OBJECT Codeunit 50047 IEM_CodeUnit
+{
+  OBJECT-PROPERTIES
+  {
+    Date=04/05/23;
+    Time=18:45:28;
+    Modified=Yes;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+
+              codiCicle := 0;
+              nomCicle := '';
+              codiFamilia := 0;
+
+              CR := 13;
+              LF := 10;
+              menuExit := TRUE;
+
+            WHILE menuExit DO BEGIN
+                Menu := Window.InputBox('1: ALTA CICLE'+ FORMAT(CR)+FORMAT(LF)
+                                     +'2: MODIFICACIà CICLE'+ FORMAT(CR)+FORMAT(LF)
+                                     +'3: ELIMINAR CICLE'+ FORMAT(CR)+FORMAT(LF)
+                                     +'4: SORTIR'+ FORMAT(CR)+FORMAT(LF)
+                                     , 'Menu','',120,120);
+
+              CASE Menu OF
+                '1':
+                  BEGIN
+
+                    EVALUATE(IEM_Cicle.codiCicle ,Window.InputBox('Introdueix el codi del cicle', 'Nou cicle', 'Introdueix un n£mero', 100, 100));
+                    EVALUATE(IEM_Cicle.nomCicle ,Window.InputBox('Introdueix el nom del cicle', 'Nou cicle', 'Introdueix un n£mero', 100, 100));
+                    EVALUATE(IEM_Cicle.familia ,Window.InputBox('Introdueix el codi de la familia a la que pertany', 'Nou cicle', 'Introdueix un n£mero', 100, 100));
+
+                    codiCicle := IEM_Cicle.codiCicle;
+                    nomCicle := IEM_Cicle.nomCicle;
+                    IEM_Cicle.INSERT;
+
+                    Window.MsgBox('Nou cicle afegit',100,'Nou cicle');
+
+                  END;
+
+                '2':
+                  BEGIN
+                    EVALUATE(codiCicle ,Window.InputBox('Introdueix el codi de equip a modificar', 'Modificar equip', 'Introdueix un n£mero', 100, 100));
+                    MeuDialeg.OPEN('Consulta 2 - Codi Equip: #1######\Nom Equip: #2######\Preu Equip: #3######\Any de compra Equip: #4######\Nom Categoria: #5######');
+                    WITH IEM_Cicle DO BEGIN
+                        IF GET(codiCicle) THEN
+                          MeuDialeg.UPDATE(1,codiCicle);
+                          MeuDialeg.UPDATE(2,nomCicle);
+                          SLEEP(2000);
+                          MeuDialeg.CLOSE;
+
+
+                          EVALUATE(nouNom ,Window.InputBox('Introdueix el nou nom del cicle', 'Modificar cicle', '', 100, 100));
+                          IEM_Cicle.nomCicle:= nouNom;
+                          IEM_Cicle.MODIFY;
+                          Window.MsgBox('Cicle modificat',100,'Consulta 11');
+                    END;
+
+
+
+                  END;
+
+                '3':
+                  BEGIN
+                    EVALUATE(cicleDelete ,Window.InputBox('Introdueix el codi del cicle a eliminar', 'Eliminar cicle', '', 100, 100));
+                    WITH IEM_Cicle DO BEGIN
+                        IF GET(cicleDelete) THEN
+                        IEM_Cicle.DELETE;
+                        Window.MsgBox('Cicle eliminat',100,'Consulta 3');
+                    END;
+                  END;
+
+                '4':
+                  BEGIN
+                    menuExit := FALSE;
+                  END;
+              END;
+
+
+            END;
+
+            ///////////////////////////////////////////////////////////
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      MeuDialeg@1106000008 : Dialog;
+      Menu@1106000011 : Text;
+      CR@1106000010 : Char;
+      LF@1106000009 : Char;
+      Window@1106000007 : DotNet "'Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Microsoft.VisualBasic.Interaction" RUNONCLIENT;
+      Comptador@1106000014 : Integer;
+      menuExit@1106000015 : Boolean;
+      IEM_Cicle@1106000000 : Record 50024;
+      nomCicle@1106000001 : Text;
+      codiCicle@1106000002 : Integer;
+      codiFamilia@1106000003 : Integer;
+      nouNom@1106000004 : Text;
+      cicleDelete@1106000005 : Integer;
+
+    BEGIN
+    END.
+  }
+}
+
