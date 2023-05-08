@@ -2,8 +2,8 @@ OBJECT Codeunit 50047 IEM_CodeUnit
 {
   OBJECT-PROPERTIES
   {
-    Date=04/05/23;
-    Time=18:45:28;
+    Date=08/05/23;
+    Time=18:56:19;
     Modified=Yes;
     Version List=;
   }
@@ -44,8 +44,8 @@ OBJECT Codeunit 50047 IEM_CodeUnit
 
                 '2':
                   BEGIN
-                    EVALUATE(codiCicle ,Window.InputBox('Introdueix el codi de equip a modificar', 'Modificar equip', 'Introdueix un n£mero', 100, 100));
-                    MeuDialeg.OPEN('Consulta 2 - Codi Equip: #1######\Nom Equip: #2######\Preu Equip: #3######\Any de compra Equip: #4######\Nom Categoria: #5######');
+                    EVALUATE(IEM_Cicle.codiCicle ,Window.InputBox('Introdueix el codi de cicle a modificar', 'Modificar cicle', '', 100, 100));
+                    MeuDialeg.OPEN('Consulta 2 - Codi Cicle: #1######\Nom Cicle: #2######');
                     WITH IEM_Cicle DO BEGIN
                         IF GET(codiCicle) THEN
                           MeuDialeg.UPDATE(1,codiCicle);
@@ -53,15 +53,11 @@ OBJECT Codeunit 50047 IEM_CodeUnit
                           SLEEP(2000);
                           MeuDialeg.CLOSE;
 
-
                           EVALUATE(nouNom ,Window.InputBox('Introdueix el nou nom del cicle', 'Modificar cicle', '', 100, 100));
                           IEM_Cicle.nomCicle:= nouNom;
                           IEM_Cicle.MODIFY;
-                          Window.MsgBox('Cicle modificat',100,'Consulta 11');
+                          Window.MsgBox('Cicle modificat',100,'Consulta 2');
                     END;
-
-
-
                   END;
 
                 '3':
